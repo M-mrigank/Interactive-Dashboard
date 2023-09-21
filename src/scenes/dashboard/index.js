@@ -12,10 +12,21 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux'
+import {getAllData} from "../../actions/chartData.js"
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = token(theme.palette.mode);
+  const dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(getAllData());
+  }, []);
+
+  const allChartData=useSelector((state)=>state.chartDataReducer);
+  console.log("printing char data", allChartData);
 
   return (
     <Box m="20px">

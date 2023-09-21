@@ -2,10 +2,37 @@ import { ResponsivePie } from "@nivo/pie";
 import { token } from "../theme";
 import { useTheme } from "@mui/material";
 import { mockPieData as data } from "../data/mockData";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {getAllData} from "../actions/chartData.js"
 
 const PieChart = () => {
+
   const theme = useTheme();
   const colors = token(theme.palette.mode);
+  const allData=useSelector((state)=>state.chartDataReducer);
+  const dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(getAllData());
+  }, []);
+  console.log(Array.isArray(allData));
+  const data1=allData?.map((data)=>data?.topic);
+  const uData=allData.map((data)=>data.topic);
+  const uniqueData=data1.filter((data, index)=>data1.indexOf(data)===index);
+  console.log(allData)
+  // console.log("print data1", data);
+  // console.log("print data2", uniqueData);
+  // console.log("print data3", uData);
+  // const freq={};
+  // uData.forEach(e=>freq[e]?freq[e]++:freq[e]=1);
+  // console.log("freq", freq);
+  // const ans=[];
+  // freq.map((data)=>{
+  //   ans.push({
+  //     id:data
+  //   })
+  // })
+
   return (
     <ResponsivePie
       data={data}
