@@ -140,7 +140,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            Region ans Country
+            Region and Country
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />
