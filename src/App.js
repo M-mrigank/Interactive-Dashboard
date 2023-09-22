@@ -14,6 +14,7 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import { Routes, Route } from "react-router-dom";
 import Calendar from "./scenes/calendar";
+import "./index.css"
 
 function App() {
 
@@ -24,7 +25,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline/>
         <div className="app">
-          <Sidebar/>
+          <div className="sidebar">
+            <Sidebar/>
+          </div>
           <main className="content">
             <TopBar/>
             <Routes>

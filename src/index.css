@@ -10,6 +10,9 @@ html, body, #root, .app, .content{
   display: flex;
   position: relative;
 }
+.sidebar{
+  height: 100%;
+}
 
 ::-webkit-scrollbar{
   width: 10px;
